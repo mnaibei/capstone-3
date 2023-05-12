@@ -9,10 +9,13 @@ const Navigation = () => (
         <h1>Space Travelers&apos; Hub</h1>
       </div>
       <ul className="nav-links">
-        <li className="links">rockets</li>
-        <li className="links">missions</li>
+        <li className="links"><a href="/">rockets</a></li>
+        <li className="links">
+          {' '}
+          <a href="/missions">missions</a>
+        </li>
         <hr className="nav-hr" />
-        <li className="links">my profile</li>
+        <li className="links"><a href="/profile">my profile</a></li>
       </ul>
     </nav>
   </>
