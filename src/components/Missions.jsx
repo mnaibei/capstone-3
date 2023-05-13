@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getMissions, joinMission, cancelMission } from '../redux/missions/missionSlice';
@@ -8,13 +9,16 @@ const Missions = () => {
 
   useEffect(() => {
     dispatch(getMissions());
-  }, [dispatch]);
+  }, []);
 
-  const handleJoinMission = (missionId) => {
-    dispatch(joinMission(missionId));
+  const handleJoinMission = (mission_id) => {
+    dispatch(joinMission(mission_id));
   };
-  const handleCancelMission = (missionId) => {
-    dispatch(cancelMission(missionId));
+
+  console.log(missions);
+
+  const handleCancelMission = (mission_id) => {
+    dispatch(cancelMission(mission_id));
   };
 
   return (
@@ -29,7 +33,7 @@ const Missions = () => {
         </thead>
         <tbody>
           {missions.map((mission) => (
-            <tr key={mission.missionId} className="mission-row">
+            <tr key={mission.mission_id} className="mission-row">
               <td className="mission-name">{mission.mission_name}</td>
               <td className="mission-desc">{mission.description}</td>
               <td className="mission-res">
@@ -48,7 +52,7 @@ const Missions = () => {
                   <button
                     className="mission-button"
                     type="button"
-                    onClick={() => handleCancelMission(mission.missionId)}
+                    onClick={() => handleCancelMission(mission.mission_id)}
                   >
                     Leave Mission
                   </button>
@@ -56,7 +60,7 @@ const Missions = () => {
                   <button
                     className="mission-button"
                     type="button"
-                    onClick={() => handleJoinMission(mission.missionId)}
+                    onClick={() => handleJoinMission(mission.mission_id)}
                   >
                     Join Mission
                   </button>

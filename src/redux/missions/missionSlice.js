@@ -14,11 +14,12 @@ export const getMissions = createAsyncThunk('missions/getMissions', async () => 
   try {
     const response = await axios.get(url);
     const missionArr = Object.keys(response.data).map((key) => ({
-      missionId: key,
+      mission_id: key,
       reserved: false,
-      action: false,
+      // action: false,
       ...response.data[key],
     }));
+    console.log(`data has been reset ${missionArr}`);
     return missionArr;
   } catch (error) {
     return isRejectedWithValue(error);
@@ -31,9 +32,9 @@ const missionSlice = createSlice({
   reducers: {
     joinMission: (state, action) => {
       const newState = { ...state };
-      newState.missions = newState.missions.map((mission) => {
-        if (mission.missionId === action.payload) {
-          return { ...mission, reserved: !mission.reserved };
+      newState.missions = state.missions.map((mission) => {
+        if (mission.mission_id === action.payload) {
+          return { ...mission, reserved: true };
         }
         return mission;
       });
@@ -42,7 +43,7 @@ const missionSlice = createSlice({
     cancelMission: (state, action) => {
       const newState = { ...state };
       newState.missions = newState.missions.map((mission) => {
-        if (mission.missionId === action.payload) {
+        if (mission.mission_id === action.payload) {
           return { ...mission, reserved: !mission.reserved };
         }
         return mission;
