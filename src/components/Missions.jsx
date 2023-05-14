@@ -20,7 +20,7 @@ const Missions = () => {
   };
 
   return (
-    <div>
+    <div className="missions-container">
       <table>
         <thead>
           <tr className="tableHeader-row">
@@ -33,8 +33,8 @@ const Missions = () => {
           {missions.map((mission) => (
             <tr key={mission.mission_id} className="mission-row">
               <td className="mission-name">{mission.mission_name}</td>
-              <td className="mission-desc">{mission.description}</td>
-              <td className="mission-res">
+              <td className="mission-description">{mission.description}</td>
+              <td className="mission-reservation">
                 {mission.reserved ? (
                   <button className="member-button" type="button">
                     Active Member
@@ -45,7 +45,7 @@ const Missions = () => {
                   </button>
                 )}
               </td>
-              <td className="mission-res">
+              <td className="mission-reservation">
                 {mission.reserved ? (
                   <button
                     className="mission-button"

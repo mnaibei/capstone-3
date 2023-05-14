@@ -8,10 +8,10 @@ const Profile = () => {
   const myRockets = rocket.filter((rocket) => rocket.reserved);
 
   return (
-    <>
+    <div className="main-profile-container">
       <div className="mission-profile-container">
-        <h2 className="mission-title">My Missions</h2>
-        <table className="profile-table">
+        <h2 className="mission-title">my missions</h2>
+        <table className="mission-item">
           <tbody>
             <>
               {myMissions.map((mission) => (
@@ -23,9 +23,9 @@ const Profile = () => {
           </tbody>
         </table>
       </div>
-      <div className="rockets-profile-container">
-        <h2 className="myRockets">my rockets</h2>
-        <table className="profile-table">
+      <div className="rocket-profile-container">
+        <h2 className="rocket-title">my rockets</h2>
+        <table className="rocket-item">
           <tbody>
             <>
               {myRockets.map((rocket) => (
@@ -37,7 +37,7 @@ const Profile = () => {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 

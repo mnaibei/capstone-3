@@ -14,10 +14,8 @@ const Rockets = () => {
   return (
     <div className="rockets-container">
       {status && rocket.map((rocket) => (
-        <div key={rocket.id}>
-          <div className="article">
-            <img src={rocket.image} alt={rocket.name} className="rocket-image" />
-          </div>
+        <div key={rocket.id} className="rocket-card">
+          <img src={rocket.image} alt={rocket.name} className="rocket-image" />
           <h2 className="rocket-title">{rocket.name}</h2>
           <p className="rocket-details">
             {rocket.reserved && <span className="reserved">Reserved</span>}
