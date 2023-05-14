@@ -5,15 +5,15 @@ import { getRockets, reserveRocket } from '../redux/rockets/rocketSlice';
 const Rockets = () => {
   const dispatch = useDispatch();
   const { rocket } = useSelector((store) => store.rocket);
-  const { status } = useSelector((store) => store.rocket);
+  const { isLoading } = useSelector((store) => store.rocket);
 
   useEffect(() => {
-    if (status === false) dispatch(getRockets());
-  }, [dispatch, status]);
+    if (isLoading === false) dispatch(getRockets());
+  }, [dispatch, isLoading]);
 
   return (
     <div className="rockets-container">
-      {status && rocket.map((rocket) => (
+      {isLoading && rocket.map((rocket) => (
         <div key={rocket.id} className="rocket-card">
           <img src={rocket.image} alt={rocket.name} className="rocket-image" />
           <h2 className="rocket-title">{rocket.name}</h2>
