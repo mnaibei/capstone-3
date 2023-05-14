@@ -4,8 +4,8 @@ import { getRockets, reserveRocket } from '../redux/rockets/rocketSlice';
 
 const Rockets = () => {
   const dispatch = useDispatch();
-  const { rocket } = useSelector((state) => state.rocket);
-  const { status } = useSelector((state) => state.rocket);
+  const { rocket } = useSelector((store) => store.rocket);
+  const { status } = useSelector((store) => store.rocket);
 
   useEffect(() => {
     if (status === false) dispatch(getRockets());
