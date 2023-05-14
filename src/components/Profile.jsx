@@ -1,11 +1,8 @@
 import { useSelector } from 'react-redux';
 
 const Profile = () => {
-  // const { missions } = useSelector((store) => store.missions);
   const missions = useSelector((store) => store.missions.missions);
   const rocket = useSelector((store) => store.rocket.rocket);
-  // const { rocket } = useSelector((store) => store.rocket);
-  console.log(rocket, missions);
 
   const myMissions = missions.filter((mission) => mission.reserved);
   const myRockets = rocket.filter((rocket) => rocket.reserved);

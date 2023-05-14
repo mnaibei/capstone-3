@@ -15,8 +15,6 @@ const Missions = () => {
     dispatch(joinMission(mission_id));
   };
 
-  console.log(missions);
-
   const handleCancelMission = (mission_id) => {
     dispatch(cancelMission(mission_id));
   };

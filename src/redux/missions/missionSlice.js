@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk, isRejectedWithValue } from '@reduxjs/toolkit';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
 
 const url = 'https://api.spacexdata.com/v3/missions';
@@ -16,10 +15,8 @@ export const getMissions = createAsyncThunk('missions/getMissions', async () => 
     const missionArr = Object.keys(response.data).map((key) => ({
       mission_id: key,
       reserved: false,
-      // action: false,
       ...response.data[key],
     }));
-    console.log(`data has been reset ${missionArr}`);
     return missionArr;
   } catch (error) {
     return isRejectedWithValue(error);
