@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import logo from '../images/planet.png';
 import '../styles/navigationstyle.css';
 
@@ -6,13 +7,13 @@ const Navigation = () => (
     <nav className="navigation-container">
       <div className="logo-header">
         <img src={logo} alt="logo" className="logo" />
-        <h1>Space Travelers&apos; Hub</h1>
+        <h1>Space Travellers Hub</h1>
       </div>
       <ul className="nav-links">
-        <li className="links">rockets</li>
-        <li className="links">missions</li>
+        <NavLink to="/">rockets</NavLink>
+        <NavLink to="/missions">missions</NavLink>
         <hr className="nav-hr" />
-        <li className="links">my profile</li>
+        <NavLink to="/profile">my profile</NavLink>
       </ul>
     </nav>
   </>
